@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="number"
+      id="txtSayi"
+      placeholder="Bir sayı giriniz"
+      min="1"
+    /><button onclick="hesapla()">Asal mı?</button>
+    <div id="result"></div>
+
+
+
+
+
+
+    <script>
+      function hesapla() {
+        let sayi = document.querySelector("#txtSayi").value;
+        if (!sayi || isNaN(sayi) || sayi < 1) {
+          alert("Lütfen pozitif bir sayı giriniz");
+          return;
+        }
+
+        let tamBolunenlerinSayisi = 0;
+        if (sayi == 1) tamBolunenlerinSayisi = 1;
+
+        for (let i = 2; i < sayi; i++) {
+          if (sayi % i == 0) tamBolunenlerinSayisi++;
+        }
+
+        let mesaj = "Sayı asal";
+        if (tamBolunenlerinSayisi > 0) {
+          mesaj = "Sayı asal değil";
+        }
+
+        document.querySelector("#result").innerText = mesaj;
+      }
+    </script>
+  </body>
+</html>
