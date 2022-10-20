@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="indirim" placeholder="İndirim oranı giriniz">
+    <button onclick="setIndirim()">Uygula</button>
+    <ul id="liste">
+      <li>Notebook <span>1500</span>$</li>
+      <li>Monitor <span>500</span>$</li>
+      <li>Klavye <span>10</span>$</li>
+      <li>Mouse <span>5</span>$</li>
+    </ul>
+
+
+
+<script>
+function setIndirim(){
+  let liste = document.querySelectorAll("#liste li span");
+  let indirim = document.querySelector("#indirim").value;
+  
+  for(let i=0; i<liste.length; i++){
+    let fiyat = Number(liste[i].innerText);
+    liste[i].innerText = fiyat - fiyat * indirim /100;
+  }
+  
+}
+
+</script>
+
+
+</body>
+</html>
